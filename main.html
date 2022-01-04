@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome To KaeJabJoo.com</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <script>
+      function rain(){
+          let amount = 10;
+          let body=document.querySelector('body');
+          let i = 0;
+
+          while(i < amount){
+              let drop = document.createElement('i_Up');
+              let size = Math.random() * 5;
+              let posX = Math.floor(Math.random() * window.innerWidth);
+              let delay = Math.random() * -20;
+              let duration = Math.random() * 5;
+
+              drop.style.width = 0.2 + size + 'px';
+              drop.style.left = posX + 'px';
+              drop.style.animationDelay = delay + 's';
+              drop.style.animationDuration = 1 + duration + 's';
+              body.appendChild(drop);
+              i++;
+          }
+          i=0;
+          while(i < amount){
+              let drop = document.createElement('i_Down');
+              let size = Math.random() * 5;
+              let posX = Math.floor(Math.random() * window.innerWidth);
+              let delay = Math.random() * -20;
+              let duration = Math.random() * 5;
+
+              drop.style.width = 0.2 + size + 'px';
+              drop.style.left = posX + 'px';
+              drop.style.animationDelay = delay + 's';
+              drop.style.animationDuration = 1 + duration + 's';
+              body.appendChild(drop);
+              i++;
+          }
+      }
+      rain();
+    </script>
+  <center>
+    <simpleText><h1>Welcome To K2J.com</h1><br></simpleText>
+    <simpleText>Raw Datas From Yahoo Finance & MarketWatch. Click The Buttons Below. <br><br></simpleText>
+  
+  
+    <form id="main" action="cgi-bin/main.php" method="post">
+
+      <!--
+      <input type="submit" value="YahooFinance_TrendingTicker" formaction="cgi-bin/yf_trending.php">
+      <input type="submit" value="YahooFinance_MostGained" formaction="cgi-bin/yf_gainer.php">
+      <input type="submit" value="MarketWatch_TrendingTicker" formaction="cgi-bin/mw_trending.php">
+      <input type="submit" value="MarketWatch_MostGained" formaction="cgi-bin/mw_gainer.php">
+      -->      
+
+      
+      <a href="cgi-bin/yf_trending.php">YFinance - Trending Ticker</a>
+      <a href="cgi-bin/yf_gainer.php">YFinance - Most Gained</a>
+      <a href="cgi-bin/mw_trending.php">MarketWatch - Trending Ticker</a>
+      <a href="cgi-bin/mw_gainer.php">MarketWatch - Most Gained</a>
+      
+      <br>
+  
+      <simpleText><br><br>Want Conditioned Info? Choose The Followings:<br><br></simpleText>
+    
+      <simpleText><b><I>1. Site Name.</I></b> <br></simpleText>
+      <INPUT TYPE="radio" NAME="DB_Choice" VALUE="YF"><simpleText> Yahoo Finance. <br></simpleText>
+      <INPUT TYPE="radio" NAME="DB_Choice" VALUE="MW"> <simpleText> Market Watch. <br></simpleText>
+      <br>
+
+      <simpleText><b><I>2. Ticker Type.</I></b> <br></simpleText>
+      <INPUT TYPE="radio" NAME="Ticker_Choice" VALUE="TT"> <simpleText> Most Active. <br></simpleText>
+      <INPUT TYPE="radio" NAME="Ticker_Choice" VALUE="MG"> <simpleText> Most Gained. <br></simpleText>
+      <br>
+
+      <simpleText><b><I>3. Per Difference.</I></b><br></simpleText>
+      <SELECT name="Percent_Range">
+        <option value="MINUSTEN_TO_MINUSFIVE">-10% ~ 15%</option>
+        <option value="MINUSFIVE_TO_ZERO">-5% ~ 0%</option>
+        <option value="ZERO_TO_FIVE">0% ~ 5%</option>
+        <option value="FIVE_TO_TEN">5% ~ 10%</option>
+        <option value="TEN_TO_FIFTEEN">10% ~ 15%</option>
+        <option value="FIFTEEN_TO_TWENTY">15% ~ 20%</option>
+        <option value="TWENTY_TO_TWENTYFIVE">20% ~ 25%</option>
+        <option value="OVER_TWENTY">Over 25%</option>
+      </SELECT>
+
+      <!--<INPUT TYPE="submit" VALUE="SEARCH"> -->
+
+      <br><br><br>
+      
+      <a onclick="document.getElementById('main').submit();">SEARCH</a>
+      </center>
+
+    </form>
+  </body>
+</html>
